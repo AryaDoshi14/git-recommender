@@ -25,11 +25,11 @@ def format_stars(count: int) -> str:
 
 def render_navbar(default_value: str = "") -> Optional[str]:
     """Render the top navbar with GitFlix branding and pill-shaped search input form."""
-    col_logo, col_form = st.columns([1, 2], vertical_alignment="center")
+    col_logo, col_form = st.columns([1, 2])
 
     with col_logo:
         st.markdown(
-            '<div style="display:flex; align-items:center; height:100%;">'
+            '<div class="logo-wrapper">'
             '<span class="gitflix-logo">🍿 GITFLIX</span>'
             '</div>',
             unsafe_allow_html=True,

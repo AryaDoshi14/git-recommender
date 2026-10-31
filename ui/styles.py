@@ -49,7 +49,7 @@ footer {
 .stMainBlockContainer,
 section.main > div.block-container,
 div[data-testid="stAppViewBlockContainer"] {
-    padding-top: 2rem !important;
+    padding-top: 3.5rem !important;
     padding-bottom: 3rem !important;
     max-width: 1350px !important;
     position: relative;
@@ -81,6 +81,12 @@ div[data-testid="stAppViewBlockContainer"] {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    height: 44px;
+}
+
 .gitflix-logo {
     font-size: 2.2rem;
     font-weight: 900;
@@ -89,8 +95,9 @@ div[data-testid="stAppViewBlockContainer"] {
     text-transform: uppercase;
     text-shadow: 0 0 25px rgba(124, 58, 237, 0.45);
     text-decoration: none;
-    display: flex;
+    display: inline-flex;
     align-items: center;
+    line-height: 1;
     gap: 0.4rem;
 }
 
@@ -98,7 +105,18 @@ div[data-testid="stAppViewBlockContainer"] {
 [data-testid="stForm"] {
     border: none !important;
     padding: 0 !important;
+    margin: 0 !important;
     background: transparent !important;
+}
+
+div[data-testid="stTextInput"] {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+div[data-testid="stFormSubmitButton"] {
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 div[data-testid="stTextInput"] input {

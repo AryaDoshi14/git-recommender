@@ -24,8 +24,8 @@ def format_stars(count: int) -> str:
 
 
 def render_navbar(default_value: str = "") -> Optional[str]:
-    """Render the top navbar with GitFlix branding and pill-shaped search input form."""
-    col_logo, col_form = st.columns([1, 2])
+    """Render the top navbar with GitFlix branding on the left corner and centered search bar."""
+    col_logo, col_search, col_right = st.columns([0.6, 2.8, 0.6], vertical_alignment="center")
 
     with col_logo:
         st.markdown(
@@ -35,18 +35,21 @@ def render_navbar(default_value: str = "") -> Optional[str]:
             unsafe_allow_html=True,
         )
 
-    with col_form:
+    with col_search:
         with st.form(key="search_form", clear_on_submit=False):
-            c_input, c_btn = st.columns([3.5, 1.2], vertical_alignment="center")
+            c_input, c_btn = st.columns([3.5, 1.1], vertical_alignment="center")
             username_input = c_input.text_input(
                 label="GitHub Username",
                 value=default_value,
                 placeholder="Enter GitHub username...",
                 label_visibility="collapsed",
             )
-            submitted = c_btn.form_submit_button("Explore")
+            submitted = c_btn.form_submit_button("Explore", use_container_width=True)
             if submitted and username_input:
                 return username_input.strip()
+
+    with col_right:
+        st.markdown('<div class="nav-right-spacer"></div>', unsafe_allow_html=True)
 
     return None
 

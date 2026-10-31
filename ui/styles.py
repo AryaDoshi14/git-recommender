@@ -101,55 +101,166 @@ div[data-testid="stAppViewBlockContainer"] {
     gap: 0.4rem;
 }
 
-/* Streamlit Search Form Overrides */
+/* -------------------------------------------------------------
+   Search Form & Input Styling (Centered, Clean Pill, No Clipping)
+   ------------------------------------------------------------- */
 [data-testid="stForm"] {
     border: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
     background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    max-width: 620px !important;
+    width: 100% !important;
 }
 
+[data-testid="stForm"] div[data-testid="stHorizontalBlock"] {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+[data-testid="stForm"] div[data-testid="stColumn"] {
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+[data-testid="stForm"] div[data-testid="stElementContainer"] {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+/* BaseWeb container resets */
 div[data-testid="stTextInput"] {
     margin: 0 !important;
     padding: 0 !important;
+    width: 100% !important;
 }
 
+div[data-baseweb="base-input"] {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+/* The Searchbar Pill: perfectly rounded, complete uncut grey border, no black overflow */
+div[data-baseweb="input"] {
+    background-color: #16161a !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border-radius: 9999px !important;
+    padding: 0 1rem 0 0 !important;
+    margin: 0 !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35) !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+div[data-baseweb="input"]:hover {
+    border-color: rgba(167, 139, 250, 0.45) !important;
+    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.25) !important;
+    background-color: #1a1a20 !important;
+}
+
+div[data-baseweb="input"]:focus-within {
+    border-color: #8b5cf6 !important;
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.25), 0 0 20px rgba(124, 58, 237, 0.4) !important;
+    background-color: #1c1c24 !important;
+}
+
+/* Neutralize any inner enhancers, trailing icons, or default dark rects */
+div[data-baseweb="input"] > div {
+    background-color: transparent !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Input element inside the pill */
+div[data-testid="stTextInput"] input {
+    background-color: transparent !important;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    color: #ffffff !important;
+    padding: 0 0.75rem 0 2.5rem !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    height: 100% !important;
+    width: 100% !important;
+    letter-spacing: -0.01em !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239ca3af' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'%3E%3C/path%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: 0.75rem center !important;
+    background-size: 1.15rem 1.15rem !important;
+    transition: background-image 0.2s ease !important;
+}
+
+div[data-testid="stTextInput"] input::placeholder {
+    color: #6b7280 !important;
+    font-size: 0.92rem !important;
+    font-weight: 400 !important;
+}
+
+div[data-baseweb="input"]:focus-within input {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23a78bfa' stroke-width='2.2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'%3E%3C/path%3E%3C/svg%3E") !important;
+}
+
+/* Submit Button */
 div[data-testid="stFormSubmitButton"] {
     margin: 0 !important;
     padding: 0 !important;
-}
-
-div[data-testid="stTextInput"] input {
-    background-color: #1a1a1a !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    border-radius: 9999px !important;
-    color: #ffffff !important;
-    padding: 0.65rem 1.4rem !important;
-    font-size: 0.95rem !important;
-    transition: all 0.2s ease-in-out;
-}
-
-div[data-testid="stTextInput"] input:focus {
-    border-color: #7c3aed !important;
-    box-shadow: 0 0 16px rgba(124, 58, 237, 0.35) !important;
-    outline: none !important;
+    width: 100% !important;
 }
 
 div[data-testid="stFormSubmitButton"] button {
-    background-color: #7c3aed !important;
+    background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%) !important;
     color: #ffffff !important;
     border-radius: 9999px !important;
     font-weight: 600 !important;
-    padding: 0.6rem 1.75rem !important;
-    border: none !important;
-    transition: all 0.2s ease-in-out;
-    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4);
+    font-size: 0.92rem !important;
+    letter-spacing: 0.02em !important;
+    padding: 0 1.5rem !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.45) !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
 }
 
 div[data-testid="stFormSubmitButton"] button:hover {
-    background-color: #6d28d9 !important;
-    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.6);
-    transform: translateY(-1px);
+    background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%) !important;
+    box-shadow: 0 6px 22px rgba(124, 58, 237, 0.65) !important;
+    transform: translateY(-1px) scale(1.02) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+div[data-testid="stFormSubmitButton"] button:active {
+    transform: translateY(0) scale(0.98) !important;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4) !important;
+}
+
+/* Right spacer for symmetric centering */
+.nav-right-spacer {
+    height: 44px;
+    width: 100%;
 }
 
 /* -------------------------------------------------------------

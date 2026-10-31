@@ -61,3 +61,14 @@ def test_render_skeleton():
     skeleton_html = render_skeleton()
     assert "skeleton-card" in skeleton_html
     assert "skeleton-row" in skeleton_html
+
+
+def test_navbar_and_search_capsule_styles():
+    """Verify that styles.py defines the centered search styles and uncut pill."""
+    from ui.styles import STYLES_CSS
+
+    assert "nav-right-spacer" in STYLES_CSS
+    assert '[data-testid="stForm"]' in STYLES_CSS
+    assert 'div[data-baseweb="input"]' in STYLES_CSS
+    assert "background-image" in STYLES_CSS
+

@@ -74,8 +74,8 @@ gitflix/
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/AryaDoshi14/gitflix.git
-   cd gitflix
+   git clone https://github.com/AryaDoshi14/git-recommender.git
+   cd git-recommender
    ```
 
 2. **Create and activate a virtual environment:**
@@ -178,4 +178,4 @@ Contributions are always welcome!
 
 ## 📄 License & Disclaimer
 
-Built with Python, Streamlit, and OpenRouter. Not affiliated with GitHub or Netflix.
+Built with Python, Streamlit, and OpenRouter. Not affiliated with GitHub.

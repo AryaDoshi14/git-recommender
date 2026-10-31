@@ -22,25 +22,56 @@ html, body, [class*="css"] {
     background-color: #0d0d0d;
 }
 
-header[data-testid="stHeader"] {
-    background-color: rgba(13, 13, 13, 0.85);
-    backdrop-filter: blur(12px);
+/* Ensure Streamlit top header is transparent and non-intrusive */
+header[data-testid="stHeader"],
+[data-testid="stHeader"],
+header {
+    background-color: transparent !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    pointer-events: none !important;
+    z-index: 50 !important;
+}
+
+header[data-testid="stHeader"] *,
+[data-testid="stHeader"] * {
+    pointer-events: auto !important;
 }
 
 footer {
     display: none !important;
 }
 
-/* Block container padding adjustments */
-.block-container {
-    padding-top: 1.5rem !important;
+/* Block container padding adjustments - ensure full clearance across all Streamlit versions */
+.block-container,
+[data-testid="block-container"],
+[data-testid="stMainBlockContainer"],
+.stMainBlockContainer,
+section.main > div.block-container,
+div[data-testid="stAppViewBlockContainer"] {
+    padding-top: 2rem !important;
     padding-bottom: 3rem !important;
     max-width: 1350px !important;
+    position: relative;
 }
 
 /* -------------------------------------------------------------
-   Navbar & Search Input Styling
+   Navbar & Search Input Styling (Always stays on top of overlays)
    ------------------------------------------------------------- */
+.gitflix-nav-wrapper {
+    position: relative;
+    z-index: 9999 !important;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+/* Prevent Streamlit loading/stale veil from dimming or hiding search bar */
+[data-testid="stForm"],
+[data-testid="stForm"] * {
+    opacity: 1 !important;
+    filter: none !important;
+    pointer-events: auto !important;
+}
 .gitflix-nav {
     display: flex;
     align-items: center;
@@ -109,8 +140,8 @@ div[data-testid="stFormSubmitButton"] button:hover {
 .welcome-container {
     text-align: center;
     max-width: 780px;
-    margin: 4rem auto 3rem auto;
-    padding: 2.5rem 1.5rem;
+    margin: 1.5rem auto 2rem auto;
+    padding: 0.75rem 1.5rem;
 }
 
 .welcome-icon-box {
